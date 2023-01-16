@@ -11,7 +11,7 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/developing-packages).
 -->
 
-Convert The DateTime Into Humanized text
+Convert The Numbers Into Humanized text
 
 ## Features
 
@@ -19,29 +19,39 @@ Support Both English And Arabic Languages
 
 ## Getting started
 
-To use SinceDate in your project, add the since_date package to pubspec.yaml: 
+To use NumberToString in your project, add the number_to_string package to pubspec.yaml: 
 ```dart
-since_date 0.0.1
+number_to_string: 0.0.1
 ```
 
 Import the package to use it:
 
 ```dart
-import 'package:since_date/since_date.dart';
+import 'package:number_to_string/number_to_string.dart';
 ```
 
 ## Usage
 
+- **First Create New Instance**
+
+```dart
+NumberToString numberToString = new NumberToString();
+```
+
 - **English** use
 
 ```dart
- SinceDate(DateTime.now(),local: "en",)
+Container(
+child:Text(number.parse(1000, "en")) // Thousand
+)
 ```
 
 - **Arabic** use
 
 ```dart
- SinceDate(DateTime.now(),local: "ar",)
+Container(
+child:Text(number.parse(1000, "ar")) // الف
+)
 ```
 
 ## Follow Me On Linkedin
