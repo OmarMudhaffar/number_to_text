@@ -1,6 +1,6 @@
 name: number_to_string
 description: Convert The Numbers Into Humanized text
-version: 0.0.1
+version: 0.0.3
 homepage: https://github.com/OmarMudhaffar/number_to_text
 
 environment:

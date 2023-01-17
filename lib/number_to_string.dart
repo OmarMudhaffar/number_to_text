@@ -193,8 +193,8 @@ class NumberToString extends StatelessWidget {
    var _digit = number;
     var columnIndex = _digit.toString().split("").length > 12 ? 0 : 
      _digit.toString().split("").length <= 12 &&  _digit.toString().split("").length > 9 ? 1 : 
-      _digit.toString().split("").length <= 9 &&  _digit.toString().split("").length > 6 ? 2 : 3;
-
+      _digit.toString().split("").length <= 9 &&  _digit.toString().split("").length > 6 ? 2 : 
+      _digit.toString().split("").length <= 6 && _digit.toString().split("").length >= 3 ? 3 : 0;
 
     _digit = number;
     _lang = lang;
@@ -240,7 +240,7 @@ class NumberToString extends StatelessWidget {
       
   
     // Generate concatenation array
-    List<dynamic> concats = new List.generate(columnIndex + 1,(i) => i);
+    List<dynamic> concats = new List.generate(columns.length,(i) => i);
     for (int i = columnIndex; i < columns.length; i++) {
       concats[i] =and;
     }
@@ -255,7 +255,6 @@ class NumberToString extends StatelessWidget {
             
             concats[i] = "";
           } else {
-            print("hello");
             break;
           }
         }
@@ -387,10 +386,10 @@ class NumberToString extends StatelessWidget {
     if (d.toString().split("")[1] == "0") {
       return tens[_lang]!["_" + d.toString()];
     }
-    if (d > 10 && d < 20) {
+    if (int.parse(d.toString()) > 10 && int.parse(d.toString()) < 20) {
       return teens[_lang]!["_" + d.toString()];
     }
-    if (d > 19 && d < 100 && d.toString().split("")[1] != "0") {
+    if (int.parse(d.toString()) > 19 && int.parse(d.toString()) < 100 && d.toString().split("")[1] != "0") {
       if (_lang == "ar") {
         return (
           readOnes(d.toString().split("")[1]) +
